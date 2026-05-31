@@ -1,27 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker Game</title>
+    <title>Кликер - Гра</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>💰 Clicker Game</h1>
-        <div class="stats">
-            <p id="score">Score: 0</p>
-            <p id="per-second">Per Second: 0</p>
+        <div class="game-header">
+            <h1>🎮 Клік Гра</h1>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-label">Очки:</span>
+                    <span class="stat-value" id="score">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">BPS:</span>
+                    <span class="stat-value" id="bps">0</span>
+                </div>
+            </div>
         </div>
-        
-        <button id="click-button" class="click-btn">Click Me!</button>
-        
-        <div class="upgrades">
-            <h2>Upgrades</h2>
-            <div id="upgrades-list" class="upgrades-list"></div>
+
+        <div class="game-area">
+            <button class="click-button" id="clickBtn">
+                <span class="click-text">КЛІК!</span>
+                <span class="click-amount" id="clickAmount">+1</span>
+            </button>
+        </div>
+
+        <div class="shop">
+            <h2>📦 Магазин Покращень</h2>
+            
+            <div class="upgrades-grid">
+                <div class="upgrade-card" id="upgrade-cursor">
+                    <div class="upgrade-header">
+                        <span class="upgrade-name">🖱️ Курсор</span>
+                        <span class="upgrade-level" id="level-cursor">Lvl 1</span>
+                    </div>
+                    <div class="upgrade-info">
+                        <span class="upgrade-description">+1 клік</span>
+                        <span class="upgrade-cost" id="cost-cursor">Вартість: 10</span>
+                    </div>
+                    <button class="buy-btn" data-upgrade="cursor">Купити</button>
+                </div>
+
+                <div class="upgrade-card" id="upgrade-grandma">
+                    <div class="upgrade-header">
+                        <span class="upgrade-name">👵 Бабуся</span>
+                        <span class="upgrade-level" id="level-grandma">Lvl 0</span>
+                    </div>
+                    <div class="upgrade-info">
+                        <span class="upgrade-description">+1 в сек</span>
+                        <span class="upgrade-cost" id="cost-grandma">Вартість: 100</span>
+                    </div>
+                    <button class="buy-btn" data-upgrade="grandma">Купити</button>
+                </div>
+
+                <div class="upgrade-card" id="upgrade-farm">
+                    <div class="upgrade-header">
+                        <span class="upgrade-name">🚜 Ферма</span>
+                        <span class="upgrade-level" id="level-farm">Lvl 0</span>
+                    </div>
+                    <div class="upgrade-info">
+                        <span class="upgrade-description">+5 в сек</span>
+                        <span class="upgrade-cost" id="cost-farm">Вартість: 1000</span>
+                    </div>
+                    <button class="buy-btn" data-upgrade="farm">Купити</button>
+                </div>
+
+                <div class="upgrade-card" id="upgrade-factory">
+                    <div class="upgrade-header">
+                        <span class="upgrade-name">🏭 Завод</span>
+                        <span class="upgrade-level" id="level-factory">Lvl 0</span>
+                    </div>
+                    <div class="upgrade-info">
+                        <span class="upgrade-description">+20 в сек</span>
+                        <span class="upgrade-cost" id="cost-factory">Вартість: 10000</span>
+                    </div>
+                    <button class="buy-btn" data-upgrade="factory">Купити</button>
+                </div>
+
+                <div class="upgrade-card" id="upgrade-bank">
+                    <div class="upgrade-header">
+                        <span class="upgrade-name">🏦 Банк</span>
+                        <span class="upgrade-level" id="level-bank">Lvl 0</span>
+                    </div>
+                    <div class="upgrade-info">
+                        <span class="upgrade-description">+50 в сек</span>
+                        <span class="upgrade-cost" id="cost-bank">Вартість: 100000</span>
+                    </div>
+                    <button class="buy-btn" data-upgrade="bank">Купити</button>
+                </div>
+
+                <div class="upgrade-card" id="upgrade-moon">
+                    <div class="upgrade-header">
+                        <span class="upgrade-name">🌙 Місяцева Станція</span>
+                        <span class="upgrade-level" id="level-moon">Lvl 0</span>
+                    </div>
+                    <div class="upgrade-info">
+                        <span class="upgrade-description">+500 в сек</span>
+                        <span class="upgrade-cost" id="cost-moon">Вартість: 1000000</span>
+                    </div>
+                    <button class="buy-btn" data-upgrade="moon">Купити</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="prestige-section">
+            <h2>⭐ Престиж</h2>
+            <div class="prestige-info">
+                <p>Результати: <span id="prestigePoints">0</span></p>
+                <p>Мультиплікатор: <span id="multiplier">1</span>x</p>
+            </div>
+            <button class="prestige-btn" id="prestigeBtn">Перезавантажити (Результати +20%)</button>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn" id="saveBtn">💾 Зберегти</button>
+            <button class="control-btn" id="resetBtn">🔄 Скинути</button>
         </div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
